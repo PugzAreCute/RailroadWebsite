@@ -1,49 +1,62 @@
 @font-face {
-  font-family: "404FONT";
+  font-family: "Defont";
   src: url("font/Default-webfont.woff") format('woff');
 }
-* {
-  line-height: 1.2;
-  margin: 0;
-  font-family: "404FONT";
+@font-face {
+  font-family: Minecraft;
+  src: url("font/minecraft-webfont.woff") format('woff');
 }
-
-html {
+*{
+  font-family: Defont;
   letter-spacing: 3px;
-  color: #888;
-  display: table;
-  height: 100%;
+}
+/*BEGIN NAVBAR*/
+.nav_bar ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #333;
+}
+
+.nav_bar ul li {
+  float: right;
+}
+
+.nav_bar ul li a {
+  font-family: Minecraft !important;
+  display: block;
+  color: white;
   text-align: center;
-  width: 100%;
+  padding: 14px 16px;
+  text-decoration: none;
 }
 
-body {
-  display: table-cell;
+.nav_bar ul li a:hover {
+  background-color: #111;
+}
+.main_header {
+  font-family: Minecraft;
+  text-align: center;
+}
+
+/*END NAVBAR*/
+
+.exclude {
+  text-align: center;
   vertical-align: middle;
-  margin: 2em auto;
+}
+.exclude {
+  height: 200px;
+  position: relative;
+
 }
 
-h1 {
-  color: #555;
-  font-size: 2em;
-  font-weight: 400;
-}
-
-p {
-  margin: 0 auto;
-  width: 280px;
-}
-
-@media only screen and (max-width: 280px) {
-
-  body,
-  p {
-    width: 95%;
-  }
-
-  h1 {
-    font-size: 1.5em;
-    margin: 0 0 0.3em;
-  }
-
+.exclude {
+  margin: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
 }
