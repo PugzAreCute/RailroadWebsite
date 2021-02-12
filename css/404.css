@@ -9,6 +9,7 @@
 }
 
 html {
+  letter-spacing: 3px;
   color: #888;
   display: table;
   height: 100%;

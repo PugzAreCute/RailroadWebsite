@@ -8,6 +8,7 @@
 }
 *{
   font-family: Defont;
+  letter-spacing: 3px;
 }
 /*BEGIN NAVBAR*/
 .nav_bar ul {
@@ -38,4 +39,5 @@
   font-family: Minecraft;
   text-align: center;
 }
+
 /*END NAVBAR*/

@@ -7,9 +7,12 @@
   src: url("font/minecraft-webfont.woff") format('woff');
 }
 html {
-
+  letter-spacing: 3px;
   color: #222;
   font-family: Minecraft;
+
+}
+.main_header {
 
 }
 /*BEGIN NAVBAR*/
@@ -41,4 +44,6 @@ html {
   font-family: Minecraft;
   text-align: center;
 }
+
 /*END NAVBAR*/
+

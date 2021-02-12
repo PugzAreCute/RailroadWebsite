@@ -8,6 +8,7 @@
 }
 
 *{
+  letter-spacing: 3px;
   font-family: "Defont";
 }
 /*BEGIN NAVBAR*/
@@ -39,6 +40,7 @@
   font-family: Minecraft;
   text-align: center;
 }
+
 /*END NAVBAR*/
 
 .accordion {
