@@ -43,6 +43,21 @@
 	<p>Finally, we can add the rules. To do that, create an array under the rules key: <code class="language-markup">"rules": []</code>, inside of which we can add our rules. To add a rule, we can open curly brackets, inside of which we need to define two values: <code class="language-markup">regex</code> and <code class="language-markup">type</code>.</p><br>
 	<p>In the regex key, we need to put the regular expression that matches the sytnax rule. Make sure to escape any backslashes with a second backslash. (e.g. <code class="language-markup">"\"</code> becomes <code class="language-markup">"\\"</code>. For the type key, put the css class that corresponds to that regex. (e.g. <code class="language-markup">keyword</code>).</p><br>
 	<p>We can add as many of these rules as we want, the syntax json for JSON files can be seen below:</p><br>
+	
+	<pre class=" language-json line-numbers"><code class=" language-json">{
+	"extension": "json",
+	"css_path": "styles/syntax/json",
+	"rules": [
+		{
+			"regex": "\"(\\\\.|[^\"])+\"(?=\\s*:)",
+			"type": "key"
+		},
+		{
+			"regex": "(null|true|false|-?\\d+\\.?\\d*|\"(\\\\.|[^\"])+\")(?=\\s*[,}\\]])",
+			"type": "value"
+		}
+	]
+}</pre></code>
 
 	<h2>2.3 - Custom Layout Tabs</h2>
 </div>
