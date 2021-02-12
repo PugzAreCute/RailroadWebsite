@@ -1,11 +1,17 @@
-window.onload = dark();
-function dark() {
-  var x = document.getElementById("light_mode");
-  if (x.style.display === "none") {
-    x.style.display = "block";
-  } else {
-    x.style.display = "none";
+window.onload = switchVisible();
+function switchVisible() {
+  if (document.getElementById('light_mode')) {
+
+    if (document.getElementById('light_mode').style.display == 'none') {
+      document.getElementById('light_mode').style.display = 'block';
+      document.getElementById('dark_mode').style.display = 'none';
+    }
+    else {
+      document.getElementById('light_mode').style.display = 'none';
+      document.getElementById('dark_mode').style.display = 'block';
+    }
+
   }
-  var element = document.body;
+  const element = document.body;
   element.classList.toggle("dark_mode");
 }
