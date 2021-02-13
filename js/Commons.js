@@ -1,23 +1,32 @@
+//INIT Pref For Cookies
+const pref = getCookie("pref");
 
-let EE;
-// Init PREF for cooke checking
-if (EE){const pref = getCookie("pref");}
 //Execute function doStartupJS() which runs js on startup
-window.onload = EE = doStartupJS();
-//window.onload = document.getElementById("switch").checked = true;
+window.onload = doStartupJS();
+
+//Function Cookie
+var Cookie_Bool;
+function Cookie(){
+  //Cookie policy
+  let cookie = confirm("Do you agree to personalize user content. You can find list of Cookie policy at https://putopug.github.io/RailroadWebsite/privacy/cookies.txt");
+  Cookie_Bool = cookie;
+  return cookie;
+}
 
 //Declare function doStartupJS()
 function doStartupJS(){
-  //Cookie policy
-  let cp_EX = confirm("Do you agree to personalize user content. You can find list of Cookie policy at https://putopug.github.io/RailroadWebsite/privacy/cookies.txt");
-
-  if(EE){checkCookieTheme();}
-    switchVisible();
-  return cp_EX;
+  Cookie();
+  switchVisible();
+  if(Cookie_Bool){
+    checkCookieTheme();
+  }
+  else {
+    document.cookie = "pref=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/RailroadWebsite;";
+  }
 }
 
 // COOKIE STUFF
-if(EE){
+
 //Function to set cookies
 function setCookie(cname, cvalue, exdays) {
   var d = new Date();
@@ -53,13 +62,11 @@ function checkCookie() {
 
 //Check the cookie which says the last used theme
 function checkCookieTheme() {
-  console.log(pref);
   if (checkCookie("pref") === "light") {
     switchVisible();
     document.getElementById("switch").checked = true;
   }
-
-}}
+}
 
 //Toggle theme
 function switchVisible() {
@@ -68,12 +75,12 @@ function switchVisible() {
     if (document.getElementById('light_mode').style.display == 'none') {
       document.getElementById('light_mode').style.display = 'block';
       document.getElementById('dark_mode').style.display = 'none';
-      if(EE){document.cookie = "pref=light"}
+      if(Cookie_Bool){document.cookie = "pref=light"}
     }
     else {
       document.getElementById('light_mode').style.display = 'none';
       document.getElementById('dark_mode').style.display = 'block';
-        if(EE){document.cookie = "pref=dark";}
+      if(Cookie_Bool){document.cookie = "pref=dark";}
     }
 
   }
