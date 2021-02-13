@@ -17,12 +17,13 @@ function Cookie(){
 
 //Declare function doStartupJS()
 function doStartupJS(){
-  Cookie();
+  if (Cookie_Bool == undefined)
+    Cookie();
   switchVisible();
   if(Cookie_Bool){
     checkCookieTheme();
   }else {
-    document.cookie = "pref=;expires=Thu, 01 Jan 1970 00:00:00 UTC;path=/RailroadWebsite;";
+    document.cookie = "pref=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/; SameSite=lax";
   }
 }
 
@@ -33,11 +34,11 @@ function setCookie(cname, cvalue, exdays) {
   var d = new Date();
   d.setTime(d.getTime() + (exdays * 24 * 60 * 60 * 1000));
   var expires = "expires="+d.toUTCString();
-  document.cookie = `${cname}=${cvalue};${expires};path=/RailroadWebsite`;
+  document.cookie = `${cname}=${cvalue}; ${expires}; path=/; SameSite=lax`;
 }
 
 function unsetCookie(cname, cvalue){
-  document.cookie = `${cname}=${cvalue};expires=Thu, 01 Jan 1970 00:00:00 UTC;path=/RailroadWebsite`;
+  document.cookie = `${cname}=${cvalue}; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/; SameSite=lax`;
 }
 
 //Function to get cookies
@@ -54,8 +55,9 @@ function getCookie(cname) {
 }
 //Function to check cookies
 function checkCookie() {
-  if (pref != "") {
-    return pref;
+  if (getCookie("pref") != "") {
+    console.log("Found cookie");
+    return getCookie("pref");
   } else {
     setCookie("pref", "dark", 365);
   }
@@ -64,37 +66,30 @@ function checkCookie() {
 
 //Check the cookie which says the last used theme
 function checkCookieTheme() {
-  if (checkCookie("pref") === "light") {
-    switchVisible();
-    document.getElementById("switch").checked = true;
-  }
+  setMode();
 }
 
 //Toggle theme
 function switchVisible() {
-  if (document.getElementById('light_mode')) {
-
-    if (document.getElementById('light_mode').style.display == 'none') {
-      document.getElementById('light_mode').style.display = 'block';
-      document.getElementById('dark_mode').style.display = 'none';
-      if (Cookie_Bool) {
-        //unsetCookie("pref", )
-        setCookie("pref", "light", 365);
-        
-        //unset dark cookie
-      } else {
-      }
-    }else if (document.getElementById('dark_mode').style.display == 'none') {
-      document.getElementById('dark_mode').style.display = 'block';
-      document.getElementById('light_mode').style.display = 'none';
-      if (Cookie_Bool) {
-        setCookie("pref", "dark", 365);
-        //unset light cookie
-      } else {
-      }
+  console.log("Switched");
+  if (document.body.classList.contains('dark_mode')) {
+    if (Cookie_Bool) {
+      console.log("set to light");
+      setCookie("pref", "light", 365);
+    } else {
     }
-    const element = document.body;
-    element.classList.toggle("dark_mode");
-
+  }else{
+    if (Cookie_Bool) {
+      console.log('set to dark');
+      setCookie("pref", "dark", 365);
+      //unset light cookie
+    } else {
+    }
   }
+  setMode();
+}
+
+function setMode(){
+  if (!Cookie_Bool || getCookie("pref") == "dark" != document.body.classList.contains('dark_mode'))
+    document.body.classList.toggle("dark_mode");
 }
