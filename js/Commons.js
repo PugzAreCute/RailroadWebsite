@@ -8,7 +8,7 @@ window.onload = doStartupJS();
 var Cookie_Bool;
 function Cookie(){
   //Cookie policy
-  let cookie = confirm("Do you agree to personalize user content. You can find list of Cookie policy at https://putopug.github.io/RailroadWebsite/privacy/cookies.txt");
+  let cookie = confirm("Do you agree to us using cookies to personalize user content. You can find the Cookie policy at https://putopug.github.io/RailroadWebsite/privacy/cookies.txt");
   Cookie_Bool = cookie;
   return cookie;
 }
