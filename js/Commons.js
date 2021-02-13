@@ -55,8 +55,8 @@ function checkCookie() {
   if (pref != "") {
     return pref;
   } else {
-      setCookie("pref", "dark", 365);
-    }
+    setCookie("pref", "dark", 365);
+  }
 }
 // END COOKIE STUFF
 

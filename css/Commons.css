@@ -64,3 +64,8 @@ input:checked + .slider:before {
 }
 
 /* END SLIDER */
+
+::selection {
+  color: #c6c5c5;
+  background: #2d2d2d;
+}
