@@ -75,16 +75,19 @@ function switchVisible() {
     if (document.getElementById('light_mode').style.display == 'none') {
       document.getElementById('light_mode').style.display = 'block';
       document.getElementById('dark_mode').style.display = 'none';
-      if(Cookie_Bool){document.cookie = "pref=light"}
+      if (Cookie_Bool) {
+        setCookie("pref", "light", 365)
+      } else {
+        document.getElementById('light_mode').style.display = 'none';
+        document.getElementById('dark_mode').style.display = 'block';
+        if (Cookie_Bool) {
+          setCookie("pref", "dark", 365)
+        }
+      }
+
     }
-    else {
-      document.getElementById('light_mode').style.display = 'none';
-      document.getElementById('dark_mode').style.display = 'block';
-      if(Cookie_Bool){document.cookie = "pref=dark";}
-    }
+    const element = document.body;
+    element.classList.toggle("dark_mode");
 
   }
-  const element = document.body;
-  element.classList.toggle("dark_mode");
-
 }
