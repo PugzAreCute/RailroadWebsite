@@ -17,7 +17,6 @@
   src: url("font/minecraft-webfont.woff") format('woff');
 }
 *{
-  overflow: hidden;
   font-family: Defont;
   letter-spacing: 3px;
 }
