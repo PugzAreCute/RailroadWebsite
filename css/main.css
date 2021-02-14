@@ -2,45 +2,10 @@
   font-family: Minecraft;
   src: url("font/minecraft-webfont.woff") format('woff');
 }
-@font-face {
-  font-family: Minecraft;
-  src: url("font/minecraft-webfont.woff") format('woff');
-}
+
 html {
   letter-spacing: 3px;
   color: #222;
   font-family: Minecraft;
 
 }
-
-/*BEGIN NAVBAR*/
-.nav_bar ul {
-  list-style-type: none;
-  margin: 0;
-  padding: 0;
-  overflow: hidden;
-  background-color: #333;
-}
-
-.nav_bar ul li {
-  float: right;
-}
-
-.nav_bar ul li a {
-  font-family: Minecraft !important;
-  display: block;
-  color: white;
-  text-align: center;
-  padding: 14px 16px;
-  text-decoration: none;
-}
-
-.nav_bar ul li a:hover {
-  background-color: #111;
-}
-.main_header {
-  font-family: Minecraft;
-  text-align: center;
-}
-
-/*END NAVBAR*/
