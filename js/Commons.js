@@ -18,6 +18,7 @@ function Cookie(){
 //Declare function doStartupJS()
 function doStartupJS(){
   includeHTML();
+  //document.getElementById("light_mode").style.color = "black";
   if (Cookie_Bool == undefined)
     Cookie();
   switchVisible();
@@ -73,6 +74,21 @@ function checkCookieTheme() {
 //Toggle theme
 function switchVisible() {
   console.log("Switched");
+  if (document.getElementById('light_mode')) {
+
+    if (document.getElementById('light_mode').style.display == 'none') {
+      document.getElementById('light_mode').style.display = 'block';
+      document.getElementById('dark_mode').style.display = 'none';}
+      else {
+        document.getElementById('light_mode').style.display = 'none';
+        document.getElementById('dark_mode').style.display = 'block';
+      }
+
+    }
+    const element = document.body;
+    element.classList.toggle("dark_mode");
+
+  }
   if (document.body.classList.contains('dark_mode')) {
     if (Cookie_Bool) {
       console.log("set to light");
@@ -86,7 +102,6 @@ function switchVisible() {
       //unset light cookie
     } else {
     }
-  }
   setMode();
 }
 
