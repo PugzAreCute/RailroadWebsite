@@ -2,16 +2,21 @@
 const pref = getCookie("pref");
 
 let Cookie_Bool;
+let cookie;
 
 //Execute function doStartupJS() which runs js on startup
 window.onload = doStartupJS();
 
+//Do the popup for cookies
+function popup() {
+  cookie = confirm("Do you agree to us using cookies to personalize user content. You can find the Cookie policy at https://putopug.github.io/RailroadWebsite/privacy/cookies.txt");
+}
 //Function Cookie
-
 function Cookie(){
   //Cookie policy
-  let cookie = confirm("Do you agree to us using cookies to personalize user content. You can find the Cookie policy at https://putopug.github.io/RailroadWebsite/privacy/cookies.txt");
+  if(checkCookie() != "TRUE"){popup(); if(cookie == false){setCookie("COOKIE_CONSENT","",365)}}
   Cookie_Bool = cookie;
+  if (Cookie_Bool){setCookie("COOKIE_CONSENT","TRUE",365)}
   return cookie;
 }
 
@@ -19,13 +24,15 @@ function Cookie(){
 function doStartupJS(){
   includeHTML();
   //document.getElementById("light_mode").style.color = "black";
-  if (Cookie_Bool == undefined)
     Cookie();
+    if (checkCookie() === "TRUE"){
+      Cookie_Bool = true;
+    }
   switchVisible();
   if(Cookie_Bool){
     checkCookieTheme();
   }else {
-    document.cookie = "pref=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/; SameSite=lax";
+    document.cookie = "pref=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
   }
 }
 
@@ -36,7 +43,7 @@ function setCookie(cname, cvalue, exdays) {
   var d = new Date();
   d.setTime(d.getTime() + (exdays * 24 * 60 * 60 * 1000));
   var expires = "expires="+d.toUTCString();
-  document.cookie = `${cname}=${cvalue}; ${expires}; path=/; SameSite=lax`;
+  document.cookie = `${cname}=${cvalue}; ${expires}; path=/;`;
 }
 
 function unsetCookie(cname, cvalue){
@@ -57,11 +64,10 @@ function getCookie(cname) {
 }
 //Function to check cookies
 function checkCookie() {
-  if (getCookie("pref") != "") {
-    console.log("Found cookie");
-    return getCookie("pref");
+  if (getCookie("COOKIE_CONSENT") != "") {
+    return getCookie("COOKIE_CONSENT");
   } else {
-    setCookie("pref", "dark", 365);
+
   }
 }
 // END COOKIE STUFF

@@ -16,11 +16,12 @@ Railroad Cookie Policy:
     We WONT save cookies if you disagree with our privacy policy.
 
   List of cookies:
-      NAME		PROVIDER	                          PURPOSE				Expiry
-       pref		putopug.github.io   Used to save current theme		365 Days.
+      NAME		              PROVIDER	                            PURPOSE				              Expiry
+       pref		               putopug.github.io   Used to save current theme		                365 Days.
+       COOKIE_CONSENT        putopug.github.io   Used to make cookie popup less annoying      365 Days.
 
 IF YOU DISAGREE TO COOKIES THE COOKIE DATA WILL BE SET TO BLANK
 
 THIS POLICY MAY BE UPDATED AT ANY TIME
-Last update : Saturday, 13 February 2021 10:30 AM UTC
+Last update : Tuesday, 23 February 2021 6:45 am UTC
 
