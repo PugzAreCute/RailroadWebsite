@@ -1,49 +1,55 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>FAQ - Railroad IDE</title>
-  <link rel="stylesheet" href="css/Commons.css">
-  <link rel="stylesheet" href="css/FAQ.css">
-  <link rel="icon" href="favicon.ico" type="image/x-icon">
-  <meta property="og:title" content="Railroad IDE">
-  <meta name="msapplication-navbutton-color" content="#6779c7">
-  <meta name="theme-color" content="#6779c7">
-  <meta name="description" content="Official website of Railroad IDE">
-  <meta name="og:description" content="Official website of Railroad IDE">
-  <meta name="og:image" content="https://putopug.github.io/RailroadWebsite/img/Railroad.png">
-</head>
-<div id="light_mode">
-  <div w3-include-html="NavBar.html"></div>
+  <head>
+    <meta charset="UTF-8">
+    <title>FAQ - Railroad IDE</title>
+    <link rel="stylesheet" href="css/Commons.css">
+    <link rel="stylesheet" href="css/FAQ.css">
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <meta property="og:title" content="Railroad IDE">
+    <meta name="msapplication-navbutton-color" content="#6779c7">
+    <meta name="theme-color" content="#6779c7">
+    <meta name="description" content="Official website of Railroad IDE">
+    <meta name="og:description" content="Official website of Railroad IDE">
+    <meta name="og:image" content="https://putopug.github.io/RailroadWebsite/img/Railroad.png">
+  </head>
+  
+  <body>
+    <div id="light_mode">
+      <div w3-include-html="NavBar.html"></div>
 
-  <button type="button" class="collapsible">Open Collapsible</button>
-  <div class="content">
-    <p>Lorem ipsum...</p>
-  </div>
-  <button type="button" class="collapsible">Open Collapsible</button>
-  <div class="content">
-    <p>Lorem ipsum...</p>
-  </div>
-</div>
+      <button type="button" class="collapsible">Open Collapsible</button>
+      <div class="content">
+        <p>Lorem ipsum...</p>
+      </div>
+      
+      <button type="button" class="collapsible">Open Collapsible</button>
+      <div class="content">
+        <p>Lorem ipsum...</p>
+      </div>
+    </div>
 
-<div id="dark_mode">
-  <div w3-include-html="NavBar.html"></div>
-  <button type="button" class="collapsible">Open Collapsible</button>
-  <div class="content">
-    <p>Lorem ipsum...</p>
-  </div>
-  <button type="button" class="collapsible">Open Collapsible</button>
-  <div class="content">
-    <p>Lorem ipsum...</p>
-  </div>
-</div>
-<!-- Rectangular switch -->
-<label class="switch">
-  <input type="checkbox" id="switch" onclick="switchVisible()">
-  <span class="slider"></span>
-</label>
-<script src="js/Commons.js"></script>
-<script src="js/FAQ.js">
-</script>
-</body>
+    <div id="dark_mode">
+      <div w3-include-html="NavBar.html"></div>
+      
+      <button type="button" class="collapsible">Open Collapsible</button>
+      <div class="content">
+        <p>Lorem ipsum...</p>
+      </div>
+
+      <button type="button" class="collapsible">Open Collapsible</button>
+      <div class="content">
+        <p>Lorem ipsum...</p>
+      </div>
+    </div>
+
+    <!-- Rectangular switch -->
+    <label class="switch">
+      <input type="checkbox" id="switch" onclick="switchVisible()">
+      <span class="slider"></span>
+    </label>
+
+    <script src="js/Commons.js"></script>
+    <script src="js/FAQ.js"></script>
+  </body>
 </html>
