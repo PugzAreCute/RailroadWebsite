@@ -1,8 +1,10 @@
 //INIT Pref For Cookies
 const pref = getCookie("pref");
 
+//Define global variables
 let Cookie_Bool;
 let cookie;
+let current_theme = "dark";
 
 //Execute function doStartupJS() which runs js on startup
 window.onload = doStartupJS();
@@ -23,14 +25,14 @@ function Cookie(){
 //Declare function doStartupJS()
 function doStartupJS(){
   includeHTML();
-  //document.getElementById("light_mode").style.color = "black";
-    Cookie();
-    if (checkCookie() === "TRUE"){
-      Cookie_Bool = true;
-    }
+  cookieTheme();
+  Cookie();
+  if (checkCookie() === "TRUE"){
+    Cookie_Bool = true;
+  }
   switchVisible();
   if(Cookie_Bool){
-    checkCookieTheme();
+
   }else {
     document.cookie = "pref=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
   }
@@ -44,10 +46,6 @@ function setCookie(cname, cvalue, exdays) {
   d.setTime(d.getTime() + (exdays * 24 * 60 * 60 * 1000));
   var expires = "expires="+d.toUTCString();
   document.cookie = `${cname}=${cvalue}; ${expires}; path=/;`;
-}
-
-function unsetCookie(cname, cvalue){
-  document.cookie = `${cname}=${cvalue}; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/; SameSite=lax`;
 }
 
 //Function to get cookies
@@ -66,20 +64,12 @@ function getCookie(cname) {
 function checkCookie() {
   if (getCookie("COOKIE_CONSENT") != "") {
     return getCookie("COOKIE_CONSENT");
-  } else {
-
   }
 }
 // END COOKIE STUFF
 
-//Check the cookie which says the last used theme
-function checkCookieTheme() {
-  setMode();
-}
-
 //Toggle theme
 function switchVisible() {
-  console.log("Switched");
   if (document.getElementById('light_mode')) {
 
     if (document.getElementById('light_mode').style.display == 'none') {
@@ -93,29 +83,27 @@ function switchVisible() {
     }
     const element = document.body;
     element.classList.toggle("dark_mode");
+}
 
+//Function to set/read themes from cookies
+function cookieTheme() {
+  function scanCookie() {
+    if (getCookie("pref") != "") {
+      return getCookie("pref");
+    }
   }
-  if (document.body.classList.contains('dark_mode')) {
-    if (Cookie_Bool) {
-      console.log("set to light");
-      setCookie("pref", "light", 365);
-    } else {
-    }
-  }else{
-    if (Cookie_Bool) {
-      console.log('set to dark');
-      setCookie("pref", "dark", 365);
-      //unset light cookie
-    } else {
-    }
-  setMode();
+  if (scanCookie() === "light"){
+    switchVisible();
+    setCookie("pref","light",365);
+    current_theme = "light";
+  }
+  else {
+    setCookie("pref","dark",365);
+    current_theme = "dark";
+  }
 }
 
-function setMode(){
-  if (!Cookie_Bool || getCookie("pref") == "dark" != document.body.classList.contains('dark_mode'))
-    document.body.classList.toggle("dark_mode");
-}
-
+//Include HTML
 function includeHTML() {
   var z, i, elmnt, file, xhttp;
   /*loop through a collection of all HTML elements:*/
@@ -142,4 +130,14 @@ function includeHTML() {
       return;
     }
   }
-};
+}
+
+//Theme changing slider code
+function check() {
+  switchVisible();
+  if(current_theme == "dark"){if(Cookie_Bool){setCookie("pref","light",365);}} else{setCookie("pref","dark",365)}
+}
+
+if (current_theme == "light"){
+  document.getElementById('switch').checked = true;
+}
