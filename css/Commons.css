@@ -9,15 +9,11 @@
   display: none;
 }
 @font-face {
-  font-family: "Defont";
-  src: url("font/Default-webfont.woff") format('woff');
-}
-@font-face {
-  font-family: Minecraft;
-  src: url("font/minecraft-webfont.woff") format('woff');
+  font-family: OpnSans;
+  src: url("font/opensans.woff") format('woff');
 }
 *{
-  font-family: Defont;
+  font-family: OpnSans;
   letter-spacing: 3px;
 }
 
@@ -101,7 +97,7 @@ input:checked + .slider:before {
 }
 
 .nav_bar ul li a {
-  font-family: Minecraft !important;
+  font-family: OpnSans !important;
   display: block;
   color: white;
   text-align: center;
@@ -113,7 +109,7 @@ input:checked + .slider:before {
   background-color: #111;
 }
 .main_header {
-  font-family: Minecraft;
+  font-family: OpnSans;
   text-align: center;
 }
 

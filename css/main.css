@@ -1,13 +1,6 @@
-@font-face {
-  font-family: Minecraft;
-  src: url("font/minecraft-webfont.woff") format('woff');
-}
-
 html {
   letter-spacing: 3px;
   color: #222;
-  font-family: Minecraft;
-
 }
 .secureServer {
   opacity: 0%;
