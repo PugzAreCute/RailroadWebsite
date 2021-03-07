@@ -1,3 +1,11 @@
+#github{
+  margin: 1px !important;
+  padding: 1px;
+  padding-top: 20% !important;
+}
+#gli{
+  margin: 1px !important;
+}
 #dark_mode {
   color: #ffffff;
 }
