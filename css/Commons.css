@@ -9,13 +9,10 @@
 #dark_mode {
   color: #ffffff;
 }
-.dark_mode {
+body {
   background-color: #181A1B;
 }
 
-#light_mode{
-  display: none;
-}
 @font-face {
   font-family: OpnSans;
   src: url("font/opensans.woff") format('woff');
