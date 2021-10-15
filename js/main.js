@@ -5,5 +5,5 @@ function secureServer(id) {
     return;
   }
   element.setAttribute("class", "secureServer")
-  return;
+
 }
